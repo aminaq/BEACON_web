@@ -1,0 +1,1587 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import BeaconBrand from '~/components/beacon/BeaconBrand.astro';
+import TeamMember from '~/components/beacon/TeamMember.astro';
+import InvolvementCard from '~/components/beacon/InvolvementCard.astro';
+import teamBoard from '~/assets/images/beacon/reference-team-board.png';
+import utsaLogo from '~/assets/images/beacon/logos/utsa.png';
+import utAustinDellLogo from '~/assets/images/beacon/logos/ut-austin-dell.png';
+import utHealthHoustonLogo from '~/assets/images/beacon/logos/uthealth-houston.png';
+import utSouthwesternLogo from '~/assets/images/beacon/logos/utsouthwestern.png';
+import utTylerLogo from '~/assets/images/beacon/logos/ut-tyler.png';
+import utmbLogo from '~/assets/images/beacon/logos/utmb.png';
+import stracLogo from '~/assets/images/beacon/logos/strac.png';
+import utrgvLogo from '~/assets/images/beacon/logos/utrgv.png';
+import paloBioLogo from '~/assets/images/beacon/logos/palobio.png';
+import matrixLogo from '~/assets/images/beacon/logos/matrix.png';
+import loneStarStrokeLogo from '~/assets/images/beacon/logos/lone-star-stroke.png';
+import utSystemLogo from '~/assets/images/beacon/logos/ut-system.png';
+import seljaAiLogo from '~/assets/images/beacon/logos/selja-ai.png';
+import { goals, involvement, people, stats } from '~/data/beacon';
+
+const collaboratorLogoItems = [
+  { name: 'UT San Antonio', image: utsaLogo },
+  { name: 'The University of Texas at Austin Dell Medical School', image: utAustinDellLogo },
+  { name: 'UTHealth Houston', image: utHealthHoustonLogo },
+  { name: 'UT Southwestern Medical Center', image: utSouthwesternLogo },
+  { name: 'UT Tyler', image: utTylerLogo },
+  { name: 'UTMB', image: utmbLogo },
+  { name: 'STRAC', image: stracLogo },
+  { name: 'UTRGV', image: utrgvLogo },
+  { name: 'Palo Bio', image: paloBioLogo, className: 'is-square' },
+  { name: 'The UTSA AI Consortium for Human Well-Being', image: matrixLogo },
+  { name: 'Lone Star Stroke Research Consortium', image: loneStarStrokeLogo, className: 'is-square' },
+  { name: 'The University of Texas System', image: utSystemLogo, className: 'is-square' },
+  { name: 'Selja AI', image: seljaAiLogo, className: 'is-mark' },
+];
+
+const metadata = {
+  title: 'BEACON — Bedside Emergency AI for Care Orchestration',
+  description:
+    'BEACON brings clinicians, engineers, AI researchers, and startup partners together to improve emergency decisions and recovery after trauma, brain injury, and stroke.',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="#top" class="brand-link" aria-label="BEACON home"><BeaconBrand compact /></a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#mission">Mission</a>
+        <a href="#impact">Impact</a>
+        <a href="#team">People</a>
+        <a href="#involve" class="nav-cta">Get involved</a>
+      </nav>
+      <details class="mobile-nav">
+        <summary aria-label="Open navigation"><span></span><span></span></summary>
+        <nav aria-label="Mobile navigation">
+          <a href="#mission">Mission</a>
+          <a href="#impact">Impact</a>
+          <a href="#team">People</a>
+          <a href="#involve">Get involved</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> UT REAL Health AI Innovation Moonshot</p>
+        <h1 id="hero-title">Lighting the way during the <em>minutes</em> that matter most.</h1>
+        <p class="hero-lede">
+          <strong>BEACON — Bedside Emergency AI for Care Orchestration</strong> brings clinicians, engineers, AI researchers,
+          and startup partners together to support faster emergency decisions — and better recovery after trauma, brain injury,
+          and stroke.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#mission">See the mission <span aria-hidden="true">↓</span></a>
+          <a class="button button-ghost" href="#involve">Get involved <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="human-note"><span class="human-dot"></span> Human expertise stays in the loop.</p>
+      </div>
+
+      <div class="hero-visual hero-gif" role="img" aria-label="Animated BEACON journey from Emergency and Selja decision support to an illuminated path and Recovery support.">
+        <img
+          src="/images/beacon/beacon-hero-journey-900x600.gif"
+          alt="Emergency and Selja decision support illuminate red, followed by the BEACON moon, the path to recovery, and the Recovery continuous support sign."
+          width="600"
+          height="900"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <section class="stats-band" id="impact" aria-label="BEACON project scale">
+      <div class="stats-grid section-shell">
+        {
+          stats.map((stat) => (
+            <div class="stat-item">
+              <strong>{stat.value}</strong>
+              <div>
+                <span>{stat.label}</span>
+                <small>{stat.detail}</small>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="mission section-shell" id="mission" aria-labelledby="mission-title">
+      <div class="section-intro mission-intro">
+        <p class="eyebrow"><span></span> The mission</p>
+        <h2 id="mission-title">One connected system, from the first decision to the long recovery.</h2>
+        <p>
+          BEACON is building a clinician-guided AI ecosystem that spans the trauma journey, and improves patient outcomes and recovery.
+        </p>
+      </div>
+
+      <div class="journey" aria-label="Three BEACON goals">
+        <div class="journey-line" aria-hidden="true"><span></span></div>
+        {
+          goals.map((goal) => (
+            <article class={`goal-card goal-${goal.accent}`}>
+              <div class="goal-top">
+                <span class="goal-number">{goal.number}</span>
+                <span class="goal-phase">{goal.phase}</span>
+              </div>
+              <div class="goal-node" aria-hidden="true">
+                <span />
+              </div>
+              <h3>{goal.title}</h3>
+              <p>{goal.description}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="principle-strip">
+        <p class="principle-label">Design principles</p>
+        <div class="principle-grid">
+          <article class="principle-item">
+            <span class="principle-item-label">Design Principle 1</span>
+            <p class="principle-quote">
+              “Augment the information available to clinicians when critical decisions have to be made.”
+            </p>
+          </article>
+          <article class="principle-item">
+            <span class="principle-item-label">Design Principle 2</span>
+            <p class="principle-quote">
+              “Improve communication for trauma and stroke patients and their care providers.”
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-section" id="team" aria-labelledby="team-title">
+      <div class="section-shell">
+        <div class="section-intro team-intro">
+          <div>
+            <p class="eyebrow"><span></span> The people</p>
+            <h2 id="team-title">Built by a rare coalition of experts, united around better care.</h2>
+          </div>
+          <p>
+            Trauma surgery, critical care, neurology, biomedical engineering, and AI — working side by side. Click a
+            portrait to learn more.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          {people.map((person) => <TeamMember person={person} />)}
+        </div>
+
+        <div class="team-note">
+          <span class="team-note-count">30+</span>
+          <p>
+            <strong>One multidisciplinary team.</strong> Clinicians, AI researchers, engineers, psychologists, therapists, nurses, startup partners, 
+            and collaborators across the UT system and partner institutions.
+          </p>
+        </div>
+
+        <div class="collaborator-gallery">
+          <div class="collaborator-copy">
+            <p class="eyebrow"><span></span> The wider collaborator community</p>
+            <h3>Across institutions, startups, and clinical environments.</h3>
+            <p>
+              BEACON is powered by a broader network of collaborators contributing clinical expertise, implementation insight,
+              AI development, rehabilitation knowledge, and survivor-centered perspectives.
+            </p>
+          </div>
+
+          <figure class="collaborator-board">
+            <img
+              src={teamBoard.src}
+              width={teamBoard.width}
+              height={teamBoard.height}
+              alt="Illustrated group image showing the broader BEACON collaborator community."
+              loading="lazy"
+            />
+          </figure>
+        </div>
+
+        <div class="logo-wall">
+          <div class="logo-wall-copy">
+            <p class="eyebrow"><span></span> Collaborating organizations</p>
+            <h3>Partner institutions and affiliated collaborators.</h3>
+          </div>
+          <div class="logo-grid">
+            {
+              collaboratorLogoItems.map((logo) => (
+                <div class={`logo-item ${logo.className ?? ''}`}>
+                  <img
+                    src={logo.image.src}
+                    width={logo.image.width}
+                    height={logo.image.height}
+                    alt={`${logo.name} logo`}
+                    loading="lazy"
+                  />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="involve-section" id="involve" aria-labelledby="involve-title">
+      <div class="section-shell involve-shell">
+        <div class="section-intro involve-intro">
+          <p class="eyebrow eyebrow-light"><span></span> Be part of what comes next</p>
+          <h2 id="involve-title">There is a role for people who fund, build, care, and recover.</h2>
+          <p>
+            Choose a path to see how you can help BEACON move from a pilot into a durable trauma and stroke care
+            ecosystem.
+          </p>
+        </div>
+
+        <div class="involve-grid">
+          {involvement.map((item, index) => <InvolvementCard item={item} index={index} />)}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-shell footer-inner">
+      <BeaconBrand compact />
+      <p>Bedside Emergency AI for Care Orchestration</p>
+      <p class="footer-meta">Trauma + stroke · emergency decisions + recovery · human-guided AI</p>
+    </div>
+  </footer>
+
+  <script is:inline>
+    const setupBeaconDialogs = () => {
+      document.querySelectorAll('[data-open-person]').forEach((button) => {
+        if (button.dataset.bound) return;
+        button.dataset.bound = 'true';
+        button.addEventListener('click', () => {
+          const id = button.getAttribute('data-open-person');
+          document.querySelector(`[data-person-dialog="${id}"]`)?.showModal();
+        });
+      });
+
+      document.querySelectorAll('[data-open-involvement]').forEach((button) => {
+        if (button.dataset.bound) return;
+        button.dataset.bound = 'true';
+        button.addEventListener('click', () => {
+          const id = button.getAttribute('data-open-involvement');
+          document.querySelector(`[data-involvement-dialog="${id}"]`)?.showModal();
+        });
+      });
+
+      document.querySelectorAll('[data-close-dialog]').forEach((button) => {
+        if (button.dataset.bound) return;
+        button.dataset.bound = 'true';
+        button.addEventListener('click', () => button.closest('dialog')?.close());
+      });
+
+      document.querySelectorAll('dialog').forEach((dialog) => {
+        if (dialog.dataset.backdropBound) return;
+        dialog.dataset.backdropBound = 'true';
+        dialog.addEventListener('click', (event) => {
+          const rect = dialog.getBoundingClientRect();
+          const inside =
+            event.clientX >= rect.left &&
+            event.clientX <= rect.right &&
+            event.clientY >= rect.top &&
+            event.clientY <= rect.bottom;
+          if (!inside) dialog.close();
+        });
+      });
+
+      document.querySelectorAll('.mobile-nav a').forEach((link) => {
+        if (link.dataset.bound) return;
+        link.dataset.bound = 'true';
+        link.addEventListener('click', () => link.closest('details')?.removeAttribute('open'));
+      });
+    };
+
+    const setupHeroJourney = () => {
+      const hero = document.querySelector('[data-hero-path]');
+      if (!hero || hero.dataset.bound) return;
+      hero.dataset.bound = 'true';
+
+      const basePath = hero.querySelector('[data-path-base]');
+      const progressPath = hero.querySelector('[data-path-progress]');
+      const stageCopy = hero.querySelector('[data-stage-copy]');
+      const triggers = hero.querySelectorAll('[data-stage-trigger]');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const stages = {
+        emergency: {
+          progress: 0.18,
+          copy: 'Emergency decision support lights the first critical steps and points clinicians toward the right care.',
+        },
+        orchestration: {
+          progress: 0.58,
+          copy: 'At the bedside, BEACON helps coordinate information, transfers, and context during the care journey.',
+        },
+        recovery: {
+          progress: 1,
+          copy: 'Recovery stays connected, with continuous support for survivors, families, and care teams.',
+        },
+      };
+
+      const setProgress = (amount) => {
+        if (!basePath || !progressPath) return;
+        const length = basePath.getTotalLength();
+        progressPath.style.strokeDasharray = `${length}`;
+        progressPath.style.strokeDashoffset = `${length * (1 - amount)}`;
+      };
+
+      const setStage = (name) => {
+        const stage = stages[name] || stages.emergency;
+        hero.dataset.activeStage = name;
+        if (stageCopy) stageCopy.textContent = stage.copy;
+        setProgress(stage.progress);
+      };
+
+      let intervalId = null;
+      const order = ['emergency', 'orchestration', 'recovery'];
+      let currentIndex = 0;
+
+      const stopAuto = () => {
+        if (intervalId) {
+          window.clearInterval(intervalId);
+          intervalId = null;
+        }
+      };
+
+      const startAuto = () => {
+        if (prefersReducedMotion) return;
+        stopAuto();
+        intervalId = window.setInterval(() => {
+          currentIndex = (currentIndex + 1) % order.length;
+          setStage(order[currentIndex]);
+        }, 3200);
+      };
+
+      triggers.forEach((trigger) => {
+        if (trigger.dataset.heroBound) return;
+        trigger.dataset.heroBound = 'true';
+        const stageName = trigger.getAttribute('data-stage-trigger');
+        const activate = () => {
+          currentIndex = Math.max(order.indexOf(stageName), 0);
+          setStage(stageName);
+          stopAuto();
+        };
+        trigger.addEventListener('mouseenter', activate);
+        trigger.addEventListener('focus', activate);
+        trigger.addEventListener('click', activate);
+      });
+
+      hero.addEventListener('mouseleave', startAuto);
+      setStage('emergency');
+      startAuto();
+    };
+
+    const initBeaconPage = () => {
+      setupBeaconDialogs();
+      setupHeroJourney();
+    };
+
+    initBeaconPage();
+    document.addEventListener('astro:page-load', initBeaconPage);
+  </script>
+</Layout>
+
+<style is:global>
+  :root {
+    --beacon-orange: #f4511e;
+    --beacon-burnt: #d65d2c;
+    --beacon-gold: #f5a623;
+    --beacon-cream: #fffaf4;
+    --beacon-ink: #15283d;
+    --beacon-blue: #456fa6;
+    --beacon-blue-pale: #e9f0f8;
+    --beacon-slate: #60748b;
+    --beacon-green: #627a45;
+    --beacon-line: rgba(21, 40, 61, 0.12);
+  }
+
+  html {
+    scroll-padding-top: 5.5rem;
+  }
+  body {
+    background: #fffdfa;
+    color: var(--beacon-ink);
+  }
+  body,
+  button,
+  input,
+  textarea {
+    font-family: 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif;
+  }
+  ::selection {
+    background: rgba(245, 166, 35, 0.3);
+    color: var(--beacon-ink);
+  }
+
+  .section-shell {
+    width: min(1180px, calc(100% - 2rem));
+    margin-inline: auto;
+  }
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(255, 253, 250, 0.86);
+    border-bottom: 1px solid rgba(21, 40, 61, 0.07);
+    backdrop-filter: blur(18px);
+  }
+  .nav-wrap {
+    width: min(1180px, calc(100% - 2rem));
+    height: 4.85rem;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .brand-link {
+    display: inline-flex;
+    text-decoration: none;
+  }
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+  .desktop-nav a {
+    color: #4e6378;
+    text-decoration: none;
+    padding: 0.65rem 0.82rem;
+    border-radius: 999px;
+    transition:
+      color 0.2s ease,
+      background 0.2s ease;
+  }
+  .desktop-nav a:hover {
+    color: var(--beacon-ink);
+    background: #f4f6f8;
+  }
+  .desktop-nav .nav-cta {
+    margin-left: 0.35rem;
+    background: var(--beacon-ink);
+    color: white;
+    padding-inline: 1rem;
+  }
+  .desktop-nav .nav-cta:hover {
+    background: var(--beacon-orange);
+    color: white;
+  }
+  .mobile-nav {
+    display: none;
+    position: relative;
+  }
+  .mobile-nav summary {
+    list-style: none;
+    width: 2.7rem;
+    height: 2.7rem;
+    border: 1px solid var(--beacon-line);
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    gap: 0.28rem;
+    cursor: pointer;
+  }
+  .mobile-nav summary::-webkit-details-marker {
+    display: none;
+  }
+  .mobile-nav summary span {
+    width: 1rem;
+    height: 1px;
+    display: block;
+    background: var(--beacon-ink);
+  }
+  .mobile-nav nav {
+    position: absolute;
+    top: 3.2rem;
+    right: 0;
+    width: 13rem;
+    padding: 0.55rem;
+    background: #fffdfa;
+    border: 1px solid var(--beacon-line);
+    border-radius: 1rem;
+    box-shadow: 0 18px 50px rgba(21, 40, 61, 0.12);
+  }
+  .mobile-nav nav a {
+    display: block;
+    padding: 0.75rem 0.85rem;
+    color: var(--beacon-ink);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 0.7rem;
+  }
+  .mobile-nav nav a:hover {
+    background: #f3f6f8;
+  }
+
+  .hero {
+    min-height: calc(100svh - 4.85rem);
+    display: grid;
+    grid-template-columns: minmax(0, 0.94fr) minmax(460px, 1.12fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    padding-block: clamp(4rem, 8vw, 7.5rem);
+    overflow: hidden;
+  }
+  .hero-copy {
+    position: relative;
+    z-index: 2;
+  }
+  .eyebrow {
+    margin: 0 0 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: #6b7f93;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    font-weight: 800;
+  }
+  .eyebrow > span {
+    width: 2.1rem;
+    height: 1px;
+    background: var(--beacon-orange);
+  }
+  .hero h1 {
+    margin: 0;
+    max-width: 760px;
+    font-size: clamp(3.25rem, 7vw, 6.5rem);
+    line-height: 0.94;
+    letter-spacing: -0.068em;
+    font-weight: 780;
+  }
+  .hero h1 em {
+    color: var(--beacon-orange);
+    font-style: normal;
+    font-weight: 760;
+  }
+  .hero-lede {
+    max-width: 690px;
+    margin: 1.75rem 0 0;
+    font-size: clamp(1.08rem, 2vw, 1.34rem);
+    line-height: 1.65;
+    color: #526b82;
+    letter-spacing: -0.015em;
+  }
+  .hero-lede strong {
+    color: var(--beacon-ink);
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 3rem;
+    padding: 0.8rem 1.15rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 760;
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease,
+      border-color 0.2s ease;
+  }
+  .button:hover {
+    transform: translateY(-2px);
+  }
+  .button-primary {
+    background: var(--beacon-orange);
+    color: white;
+    box-shadow: 0 12px 28px rgba(244, 81, 30, 0.18);
+  }
+  .button-primary:hover {
+    background: #da4619;
+  }
+  .button-ghost {
+    border: 1px solid var(--beacon-line);
+    color: var(--beacon-ink);
+    background: white;
+  }
+  .button-ghost:hover {
+    border-color: rgba(21, 40, 61, 0.25);
+  }
+  .human-note {
+    margin: 1.25rem 0 0;
+    color: #71869a;
+    font-size: 0.82rem;
+    display: flex;
+    gap: 0.55rem;
+    align-items: center;
+  }
+  .human-dot {
+    width: 0.48rem;
+    height: 0.48rem;
+    border-radius: 50%;
+    background: #6f8c55;
+    box-shadow: 0 0 0 0.25rem rgba(111, 140, 85, 0.12);
+  }
+
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1;
+    width: min(100%, 560px);
+    justify-self: end;
+    overflow: hidden;
+  }
+  .hero-journey {
+    --moon-left: 19%;
+    --moon-top: 78%;
+    border-radius: 2.1rem;
+    border: 1px solid rgba(21, 40, 61, 0.06);
+    background:
+      linear-gradient(180deg, #fffdf9 0%, #f5f7fb 50%, #eef2f7 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.72),
+      0 28px 90px rgba(50, 67, 88, 0.08);
+    isolation: isolate;
+  }
+  .hero-sky,
+  .hero-sun-haze,
+  .hero-land,
+  .moon-cast,
+  .path-svg,
+  .beacon-moon,
+  .path-node,
+  .destination-chip,
+  .hero-stage-panel {
+    position: absolute;
+  }
+  .hero-sky {
+    inset: 0;
+    background:
+      radial-gradient(circle at 64% 18%, rgba(255, 248, 218, 0.82), rgba(255, 248, 218, 0) 25%),
+      radial-gradient(circle at 22% 16%, rgba(232, 239, 248, 0.95), rgba(232, 239, 248, 0) 26%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 253, 0.92) 42%, rgba(239, 243, 249, 0.95) 100%);
+  }
+  .hero-sun-haze {
+    inset: 18% 18% 22% 18%;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 48%, rgba(245, 166, 35, 0.22), rgba(245, 166, 35, 0.08) 24%, rgba(245, 166, 35, 0) 56%),
+      radial-gradient(circle at 50% 50%, rgba(21, 40, 61, 0.08), rgba(21, 40, 61, 0) 68%);
+    filter: blur(16px);
+    z-index: 0;
+  }
+  .hero-land {
+    left: -8%;
+    right: -8%;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    z-index: 0;
+  }
+  .hero-land-back {
+    bottom: 31%;
+    height: 28%;
+    background: linear-gradient(180deg, rgba(222, 230, 240, 0.88), rgba(210, 221, 234, 0.96));
+    clip-path: ellipse(57% 58% at 50% 52%);
+  }
+  .hero-land-mid {
+    bottom: 19%;
+    height: 26%;
+    background: linear-gradient(180deg, rgba(234, 239, 245, 0.98), rgba(220, 228, 238, 1));
+    clip-path: ellipse(62% 64% at 50% 58%);
+  }
+  .hero-land-front {
+    bottom: -2%;
+    height: 28%;
+    background: linear-gradient(180deg, rgba(231, 236, 242, 1), rgba(220, 228, 238, 1));
+    clip-path: ellipse(68% 72% at 50% 58%);
+  }
+  .path-svg {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    z-index: 1;
+  }
+  .journey-path-shadow,
+  .journey-path-base,
+  .journey-path-progress {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .journey-path-shadow {
+    stroke: rgba(245, 166, 35, 0.16);
+    stroke-width: 56;
+    filter: blur(18px);
+    opacity: 0.9;
+  }
+  .journey-path-base {
+    stroke: url(#heroPathBase);
+    stroke-width: 17;
+    opacity: 0.72;
+  }
+  .journey-path-progress {
+    stroke: url(#heroPathProgress);
+    stroke-width: 17;
+    filter: drop-shadow(0 0 12px rgba(245, 166, 35, 0.18));
+    transition: stroke-dashoffset 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .moon-cast {
+    left: calc(var(--moon-left) - 11%);
+    top: calc(var(--moon-top) - 11%);
+    width: 36%;
+    height: 36%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 248, 218, 0.94) 0%, rgba(245, 166, 35, 0.2) 44%, rgba(245, 166, 35, 0) 74%);
+    filter: blur(10px);
+    z-index: 2;
+    pointer-events: none;
+    transition:
+      left 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      top 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .beacon-moon {
+    left: var(--moon-left);
+    top: var(--moon-top);
+    translate: -50% -50%;
+    width: 18%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    z-index: 3;
+    background: radial-gradient(circle at 48% 38%, #fff8d6 0 10%, #ffd86e 24%, #f5b53c 52%, #f07c38 76%, #f4511e 100%);
+    box-shadow:
+      0 0 0 0.95rem rgba(245, 166, 35, 0.1),
+      0 0 3rem 0.95rem rgba(245, 166, 35, 0.34),
+      0 0 6rem 1.6rem rgba(244, 81, 30, 0.08);
+    transition:
+      left 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      top 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .beacon-moon::after {
+    content: '';
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 252, 235, 0.98), rgba(255, 222, 111, 0.92) 68%, rgba(244, 81, 30, 0.12));
+    filter: blur(0.6px);
+  }
+  .beacon-moon span {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    border-radius: 50%;
+    border: 1px solid rgba(244, 81, 30, 0.16);
+    animation: beacon-pulse 3.8s ease-in-out infinite;
+  }
+  @keyframes beacon-pulse {
+    0%, 100% { transform: scale(0.96); opacity: 0.42; }
+    50% { transform: scale(1.04); opacity: 0.82; }
+  }
+  .path-node {
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    z-index: 4;
+  }
+  .path-node::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(21, 40, 61, 0.08);
+    box-shadow: 0 10px 24px rgba(21, 40, 61, 0.09);
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  .path-node-core {
+    position: absolute;
+    inset: 0.46rem;
+    border-radius: 50%;
+    background: currentColor;
+    display: block;
+    box-shadow: 0 0 0 0.24rem color-mix(in srgb, currentColor 14%, white);
+  }
+  .path-node:hover::before,
+  .path-node:focus-visible::before {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.9);
+  }
+  .path-node:focus-visible,
+  .destination-chip:focus-visible {
+    outline: 2px solid rgba(21, 40, 61, 0.35);
+    outline-offset: 4px;
+  }
+  .node-emergency { left: 15.2%; top: 75.8%; color: var(--beacon-orange); }
+  .node-orchestration { left: 45.8%; top: 52.4%; color: var(--beacon-gold); }
+  .node-recovery { left: 82%; top: 17.6%; color: var(--beacon-blue); }
+  .destination-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.82rem;
+    padding: 0.78rem 0.92rem 0.78rem 0.78rem;
+    border: 1px solid rgba(21, 40, 61, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 18px 40px rgba(35, 54, 76, 0.08);
+    backdrop-filter: blur(12px);
+    color: var(--beacon-ink);
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  }
+  .destination-step {
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 0.7rem;
+    font-weight: 800;
+    flex: 0 0 auto;
+    background: #fff3eb;
+    color: var(--beacon-burnt);
+  }
+  .destination-copy {
+    display: grid;
+    text-align: left;
+    line-height: 1.2;
+  }
+  .destination-copy strong {
+    font-size: 0.84rem;
+  }
+  .destination-copy small {
+    color: #74889b;
+    font-size: 0.68rem;
+  }
+  .chip-emergency { left: 6%; bottom: 10%; }
+  .chip-orchestration { left: 39%; top: 39%; }
+  .chip-recovery { right: 2.8%; top: 7.2%; }
+  .hero-stage-panel {
+    left: 6%;
+    right: 6%;
+    bottom: 3.8%;
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.95rem 1rem;
+    border-radius: 1.15rem;
+    background: rgba(255, 253, 250, 0.78);
+    border: 1px solid rgba(21, 40, 61, 0.07);
+    box-shadow: 0 16px 34px rgba(35, 54, 76, 0.06);
+    backdrop-filter: blur(12px);
+    z-index: 5;
+  }
+  .hero-stage-kicker {
+    margin: 0;
+    color: var(--beacon-orange);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.64rem;
+    font-weight: 800;
+  }
+  .hero-stage-copy {
+    margin: 0;
+    color: #5d7287;
+    font-size: 0.78rem;
+    line-height: 1.54;
+  }
+  [data-hero-path][data-active-stage='emergency'] {
+    --moon-left: 19%;
+    --moon-top: 78%;
+  }
+  [data-hero-path][data-active-stage='orchestration'] {
+    --moon-left: 45.8%;
+    --moon-top: 52.4%;
+  }
+  [data-hero-path][data-active-stage='recovery'] {
+    --moon-left: 82%;
+    --moon-top: 17.6%;
+  }
+  [data-hero-path][data-active-stage='emergency'] .chip-emergency,
+  [data-hero-path][data-active-stage='orchestration'] .chip-orchestration,
+  [data-hero-path][data-active-stage='recovery'] .chip-recovery {
+    transform: translateY(-3px) scale(1.02);
+    border-color: rgba(244, 81, 30, 0.2);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 22px 48px rgba(35, 54, 76, 0.12);
+  }
+  [data-hero-path][data-active-stage='emergency'] .node-emergency::before,
+  [data-hero-path][data-active-stage='orchestration'] .node-orchestration::before,
+  [data-hero-path][data-active-stage='recovery'] .node-recovery::before {
+    background: rgba(255, 255, 255, 0.94);
+    transform: scale(1.08);
+  }
+
+
+  .stats-band {
+    border-block: 1px solid rgba(21, 40, 61, 0.08);
+    background: linear-gradient(90deg, #faf3eb 0%, #eef3f9 58%, #edf2e7 100%);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat-item {
+    min-height: 8.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 1.35rem;
+    border-right: 1px solid rgba(21, 40, 61, 0.09);
+  }
+  .stat-item:last-child {
+    border-right: 0;
+  }
+  .stat-item > strong {
+    font-size: clamp(2.4rem, 4vw, 4.3rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+    font-weight: 700;
+    color: var(--beacon-burnt);
+  }
+  .stat-item div {
+    display: grid;
+    gap: 0.2rem;
+  }
+  .stat-item span {
+    font-weight: 760;
+    letter-spacing: -0.02em;
+  }
+  .stat-item small {
+    max-width: 13rem;
+    color: #6a7f93;
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  .mission {
+    padding-block: clamp(5rem, 9vw, 8rem);
+  }
+  .section-intro h2 {
+    margin: 0;
+    font-size: clamp(2.45rem, 5.4vw, 4.8rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+    font-weight: 720;
+  }
+  .section-intro > p:last-child {
+    color: #60748b;
+    line-height: 1.68;
+  }
+  .mission-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.5fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: end;
+  }
+  .mission-intro .eyebrow {
+    grid-column: 1/-1;
+    margin-bottom: -0.6rem;
+  }
+  .mission-intro > p:last-child {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+  }
+
+  .journey {
+    position: relative;
+    margin-top: clamp(3rem, 6vw, 5.4rem);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .journey-line {
+    position: absolute;
+    left: 7%;
+    right: 7%;
+    top: 4.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(244, 81, 30, 0.35), rgba(69, 111, 166, 0.35), rgba(98, 122, 69, 0.38));
+  }
+  .journey-line span {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 5%, rgba(255, 255, 255, 0.9) 50%, transparent 95%);
+    animation: pulse-line 4s ease-in-out infinite;
+  }
+  @keyframes pulse-line {
+    0%,
+    100% {
+      opacity: 0.1;
+      transform: translateX(-20%);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(20%);
+    }
+  }
+  .goal-card {
+    position: relative;
+    padding: 1.35rem 1.2rem 1.5rem;
+    border-radius: 1.45rem;
+    background: #fff;
+    border: 1px solid var(--beacon-line);
+    min-height: 21rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .goal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    color: #7b8fa3;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+  }
+  .goal-number {
+    color: #a2afbb;
+  }
+  .goal-node {
+    position: relative;
+    width: 2.1rem;
+    height: 2.1rem;
+    margin-top: 1.75rem;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid currentColor;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+  }
+  .goal-node span {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .goal-card h3 {
+    margin: auto 0 0.7rem;
+    max-width: 18rem;
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+  }
+  .goal-card p {
+    margin: 0;
+    color: #60748b;
+    line-height: 1.62;
+    font-size: 0.92rem;
+  }
+  .goal-orange {
+    color: var(--beacon-orange);
+    background: linear-gradient(180deg, #fff 0%, #fff9f5 100%);
+  }
+  .goal-blue {
+    color: var(--beacon-blue);
+    background: linear-gradient(180deg, #fff 0%, #f7faff 100%);
+  }
+  .goal-green {
+    color: var(--beacon-green);
+    background: linear-gradient(180deg, #fff 0%, #f8faf5 100%);
+  }
+  .goal-card h3,
+  .goal-card p {
+    color: var(--beacon-ink);
+  }
+  .goal-card p {
+    color: #60748b;
+  }
+  .principle-strip {
+    margin-top: 1rem;
+    border-radius: 1.45rem;
+    background: var(--beacon-ink);
+    color: white;
+    padding: 1.45rem 1.6rem 1.6rem;
+    display: grid;
+    gap: 1rem;
+  }
+  .principle-label {
+    margin: 0;
+    color: #ff9f7b;
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+  .principle-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .principle-item {
+    border-radius: 1.15rem;
+    padding: 1rem 1rem 1.05rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .principle-item-label {
+    display: inline-block;
+    margin-bottom: 0.6rem;
+    color: #ffbf9e;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .principle-quote {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.12rem);
+    line-height: 1.55;
+    letter-spacing: -0.015em;
+  }
+
+
+  .team-section {
+    padding-block: clamp(5rem, 9vw, 8rem);
+    background: #f3f6f9;
+    border-block: 1px solid rgba(21, 40, 61, 0.07);
+  }
+  .team-intro {
+    display: grid;
+    grid-template-columns: 1.25fr 0.55fr;
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: end;
+  }
+  .team-intro h2 {
+    font-size: clamp(2.35rem, 4.8vw, 4.35rem);
+  }
+  .team-intro > p {
+    margin: 0 0 0.4rem;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 3.25rem;
+  }
+  .team-note {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    max-width: 760px;
+  }
+  .team-note-count {
+    min-width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #dfe9f5;
+    color: var(--beacon-blue);
+    font-size: 1.25rem;
+    font-weight: 800;
+  }
+  .team-note p {
+    margin: 0;
+    color: #60748b;
+    line-height: 1.58;
+    font-size: 0.9rem;
+  }
+  .team-note strong {
+    color: var(--beacon-ink);
+  }
+  .collaborator-gallery,
+  .logo-wall {
+    margin-top: 3rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+  .collaborator-copy,
+  .logo-wall-copy {
+    max-width: 760px;
+  }
+  .collaborator-copy .eyebrow,
+  .logo-wall-copy .eyebrow {
+    margin-bottom: 0.75rem;
+  }
+  .collaborator-copy h3,
+  .logo-wall-copy h3 {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+  .collaborator-copy p:last-child,
+  .logo-wall-copy p:last-child {
+    margin: 0.9rem 0 0;
+    color: #60748b;
+    line-height: 1.65;
+  }
+  .collaborator-board {
+    margin: 0;
+    border-radius: 1.55rem;
+    overflow: hidden;
+    border: 1px solid rgba(21, 40, 61, 0.08);
+    background: white;
+    box-shadow: 0 18px 50px rgba(35, 54, 76, 0.08);
+  }
+  .collaborator-board img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .logo-wall {
+    margin-top: 2rem;
+  }
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .logo-item {
+    min-height: 9rem;
+    border-radius: 1.35rem;
+    border: 1px solid rgba(21, 40, 61, 0.08);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 16px 42px rgba(35, 54, 76, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .logo-item img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 4.9rem;
+    height: auto;
+    object-fit: contain;
+  }
+  .logo-item.is-square img {
+    max-height: 6.3rem;
+  }
+  .logo-item.is-mark img {
+    max-height: 5.5rem;
+  }
+
+  .involve-section {
+    padding-block: clamp(5rem, 9vw, 8rem);
+    background: var(--beacon-ink);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .involve-section::before {
+    content: '';
+    position: absolute;
+    width: 38rem;
+    height: 38rem;
+    border-radius: 50%;
+    right: -12rem;
+    top: -14rem;
+    border: 1px solid rgba(245, 166, 35, 0.18);
+    box-shadow:
+      0 0 0 5rem rgba(245, 166, 35, 0.025),
+      0 0 0 10rem rgba(69, 111, 166, 0.025);
+  }
+  .involve-shell {
+    position: relative;
+    z-index: 1;
+  }
+  .eyebrow-light {
+    color: #b5c4d1;
+  }
+  .involve-intro {
+    max-width: 850px;
+  }
+  .involve-intro h2 {
+    color: white;
+  }
+  .involve-intro > p:last-child {
+    max-width: 650px;
+    color: #b7c4d0;
+    font-size: 1rem;
+    margin: 1.35rem 0 0;
+  }
+  .involve-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 3.25rem;
+  }
+
+  .site-footer {
+    background: #fffdfa;
+    border-top: 1px solid rgba(21, 40, 61, 0.08);
+    padding-block: 1.7rem;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .footer-inner p {
+    margin: 0;
+    color: #71869a;
+    font-size: 0.75rem;
+  }
+  .footer-meta {
+    text-align: right;
+  }
+
+  dialog:focus-visible {
+    outline: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      padding-top: 4rem;
+    }
+    .hero-copy {
+      max-width: 780px;
+    }
+    .hero-visual {
+      width: min(100%, 560px);
+      justify-self: center;
+    }
+    .chip-recovery {
+      right: 4%;
+    }
+    .card-emergency {
+      left: 6%;
+    }
+    .card-recovery {
+      right: 0;
+    }
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .stat-item:nth-child(2) {
+      border-right: 0;
+    }
+    .stat-item:nth-child(-n + 2) {
+      border-bottom: 1px solid rgba(21, 40, 61, 0.09);
+    }
+    .mission-intro,
+    .team-intro {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .mission-intro .eyebrow {
+      margin-bottom: 0;
+    }
+    .mission-intro > p:last-child,
+    .team-intro > p {
+      max-width: 680px;
+    }
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.3rem;
+    }
+    .collaborator-gallery,
+    .logo-wall {
+      margin-top: 2.35rem;
+    }
+    .logo-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    .footer-meta {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .desktop-nav {
+      display: none;
+    }
+    .mobile-nav {
+      display: block;
+    }
+    .hero {
+      padding-top: 3.25rem;
+      gap: 3rem;
+    }
+    .hero h1 {
+      font-size: clamp(3.1rem, 14vw, 5rem);
+    }
+    .hero-visual {
+      width: min(94vw, 500px);
+    }
+    .destination-chip {
+      gap: 0.62rem;
+      padding: 0.66rem 0.78rem 0.66rem 0.66rem;
+    }
+    .destination-step {
+      width: 2rem;
+      height: 2rem;
+    }
+    .chip-emergency {
+      left: 3%;
+      bottom: 12%;
+    }
+    .chip-orchestration {
+      left: 28%;
+      top: 43%;
+    }
+    .chip-recovery {
+      right: 1.5%;
+      top: 8%;
+    }
+    .hero-stage-panel {
+      left: 4%;
+      right: 4%;
+      bottom: 3%;
+    }
+    .journey {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+    .journey-line {
+      left: 2.15rem;
+      right: auto;
+      top: 4rem;
+      bottom: 4rem;
+      width: 1px;
+      height: auto;
+      background: linear-gradient(180deg, rgba(244, 81, 30, 0.35), rgba(69, 111, 166, 0.35), rgba(98, 122, 69, 0.38));
+    }
+    .journey-line span {
+      display: none;
+    }
+    .goal-card {
+      min-height: 15rem;
+      padding-left: 4.2rem;
+    }
+    .goal-node {
+      position: absolute;
+      left: 1.1rem;
+      top: 2.45rem;
+      margin: 0;
+    }
+    .goal-card h3 {
+      margin-top: auto;
+    }
+    .principle-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-stage-panel {
+      padding: 0.85rem 0.9rem;
+    }
+    .involve-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .section-shell,
+    .nav-wrap {
+      width: min(100% - 1.25rem, 1180px);
+    }
+    .nav-wrap {
+      height: 4.4rem;
+    }
+    html {
+      scroll-padding-top: 5rem;
+    }
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    .stat-item {
+      min-height: 7rem;
+      border-right: 0;
+      border-bottom: 1px solid rgba(21, 40, 61, 0.09);
+    }
+    .stat-item:last-child {
+      border-bottom: 0;
+    }
+    .stat-item > strong {
+      min-width: 5rem;
+    }
+    .team-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .team-note {
+      align-items: flex-start;
+    }
+    .chip-orchestration {
+      left: 24%;
+      top: 45%;
+    }
+    .collaborator-copy h3,
+    .logo-wall-copy h3 {
+      font-size: 1.4rem;
+    }
+    .logo-grid {
+      grid-template-columns: 1fr;
+    }
+    .logo-item {
+      min-height: 7.5rem;
+    }
+    .team-note-count {
+      min-width: 3.65rem;
+      height: 3.65rem;
+    }
+  }
+
+
+  /* Hero GIF: 900 x 600 portrait-style composition (900 height x 600 width) with the full sequence preserved and blended into the page background. */
+  .hero-gif.hero-visual {
+    aspect-ratio: 2 / 3;
+    width: min(100%, 520px);
+    justify-self: center;
+    align-self: center;
+    overflow: visible;
+    background: transparent;
+  }
+  .hero-gif img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  @media (max-width: 1200px) {
+    .hero-gif.hero-visual {
+      width: min(100%, 500px);
+    }
+  }
+  @media (max-width: 980px) {
+    .hero-gif.hero-visual {
+      width: min(92vw, 520px);
+      justify-self: center;
+    }
+  }
+  @media (max-width: 560px) {
+    .hero-gif.hero-visual {
+      width: min(94vw, 420px);
+    }
+  }
+
+</style>

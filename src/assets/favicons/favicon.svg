@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="g" cx="44%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fff7c2"/>
+      <stop offset="28%" stop-color="#ffd65a"/>
+      <stop offset="64%" stop-color="#f5a623"/>
+      <stop offset="100%" stop-color="#f4511e"/>
+    </radialGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0.5  0 0 1 0 0.1  0 0 0 1 0"/>
+    </filter>
+  </defs>
+  <circle cx="32" cy="32" r="22" fill="#f5a623" opacity="0.28" filter="url(#glow)"/>
+  <circle cx="32" cy="32" r="15" fill="#f4511e"/>
+  <circle cx="32" cy="32" r="9" fill="url(#g)"/>
+  <circle cx="32" cy="32" r="20" fill="none" stroke="#f4511e" stroke-opacity="0.2"/>
+</svg>

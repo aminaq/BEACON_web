@@ -1,0 +1,204 @@
+---
+import { Image } from 'astro:assets';
+const { person } = Astro.props;
+---
+
+<article class="team-card">
+  <button
+    class="portrait-button"
+    type="button"
+    data-open-person={person.id}
+    aria-haspopup="dialog"
+    aria-controls={`dialog-${person.id}`}
+  >
+    <span class="portrait-shell">
+      <Image
+        src={person.image}
+        alt={`Portrait of ${person.name}`}
+        widths={[280, 420]}
+        sizes="(max-width: 640px) 42vw, 260px"
+        loading="lazy"
+      />
+      <span class="portrait-action" aria-hidden="true">+</span>
+    </span>
+    <span class="team-name">{person.name}</span>
+    <span class="team-role">{person.role}</span>
+  </button>
+</article>
+
+<dialog class="person-dialog" id={`dialog-${person.id}`} data-person-dialog={person.id}>
+  <button class="dialog-close" type="button" data-close-dialog aria-label="Close">×</button>
+  <div class="dialog-person">
+    <Image src={person.image} alt="" width={180} height={180} loading="lazy" />
+    <div>
+      <p class="dialog-kicker">BEACON team</p>
+      <h3>{person.name}</h3>
+      <p class="dialog-role">{person.role}</p>
+    </div>
+  </div>
+  <p class="dialog-bio">{person.bio}</p>
+  <p class="dialog-focus"><strong>Focus:</strong> {person.focus}</p>
+</dialog>
+
+<style>
+  .team-card {
+    min-width: 0;
+  }
+  .portrait-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    color: inherit;
+  }
+  .portrait-shell {
+    display: block;
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 1.8rem;
+    overflow: hidden;
+    background: #fbf6ee;
+    border: 1px solid rgba(43, 73, 108, 0.1);
+    box-shadow: 0 18px 50px rgba(34, 55, 78, 0.08);
+    transition:
+      transform 0.28s ease,
+      box-shadow 0.28s ease;
+  }
+  .portrait-shell :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .portrait-action {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #f4511e;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 300;
+    box-shadow: 0 8px 22px rgba(244, 81, 30, 0.26);
+    transition: transform 0.28s ease;
+  }
+  .portrait-button:hover .portrait-shell,
+  .portrait-button:focus-visible .portrait-shell {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 60px rgba(34, 55, 78, 0.13);
+  }
+  .portrait-button:hover .portrait-action {
+    transform: rotate(90deg);
+  }
+  .portrait-button:focus-visible {
+    outline: 3px solid rgba(69, 111, 166, 0.35);
+    outline-offset: 8px;
+    border-radius: 1.9rem;
+  }
+  .team-name {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 760;
+    letter-spacing: -0.025em;
+    font-size: 1.06rem;
+  }
+  .team-role {
+    display: block;
+    margin-top: 0.23rem;
+    color: #60748b;
+    font-size: 0.86rem;
+    line-height: 1.4;
+  }
+  .person-dialog {
+    width: min(600px, calc(100% - 2rem));
+    border: 0;
+    padding: 0;
+    border-radius: 1.8rem;
+    background: #fffdfa;
+    color: #15283d;
+    box-shadow: 0 38px 100px rgba(16, 38, 64, 0.28);
+  }
+  .person-dialog::backdrop {
+    background: rgba(20, 35, 52, 0.48);
+    backdrop-filter: blur(4px);
+  }
+  .person-dialog[open] {
+    padding: 2rem;
+  }
+  .dialog-close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid rgba(21, 40, 61, 0.12);
+    background: white;
+    color: #15283d;
+    cursor: pointer;
+    font-size: 1.45rem;
+    line-height: 1;
+  }
+  .dialog-person {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-right: 2.7rem;
+  }
+  .dialog-person :global(img) {
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 1.35rem;
+    object-fit: cover;
+    border: 1px solid rgba(21, 40, 61, 0.1);
+  }
+  .dialog-kicker {
+    margin: 0 0 0.35rem;
+    color: #d95829;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    font-weight: 800;
+  }
+  .dialog-person h3 {
+    margin: 0;
+    font-size: clamp(1.45rem, 4vw, 2rem);
+    letter-spacing: -0.04em;
+  }
+  .dialog-role {
+    margin: 0.35rem 0 0;
+    color: #60748b;
+  }
+  .dialog-bio {
+    margin: 1.5rem 0 0;
+    line-height: 1.72;
+    color: #344b62;
+  }
+  .dialog-focus {
+    margin: 1.2rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(21, 40, 61, 0.1);
+    font-size: 0.9rem;
+    color: #526b82;
+  }
+  @media (max-width: 520px) {
+    .person-dialog[open] {
+      padding: 1.4rem;
+    }
+    .dialog-person {
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .dialog-person :global(img) {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+</style>

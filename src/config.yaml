@@ -1,0 +1,37 @@
+site:
+  name: BEACON
+  base: '/'
+  trailingSlash: false
+
+metadata:
+  title:
+    default: 'BEACON — Bedside Emergency AI for Care Orchestration'
+    template: '%s — BEACON'
+  description: 'BEACON brings clinicians, engineers, AI researchers, and startup partners together to improve emergency decisions and recovery after trauma, brain injury, and stroke.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: BEACON
+    type: website
+  twitter:
+    cardType: summary
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: false
+    postsPerPage: 6
+    isRelatedPostsEnabled: false
+    relatedPostsCount: 0
+
+ui:
+  theme: 'light:only'
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null

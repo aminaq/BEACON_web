@@ -1,0 +1,53 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import BeaconBrand from '~/components/beacon/BeaconBrand.astro';
+---
+
+<Layout metadata={{ title: 'Page not found — BEACON', robots: { index: false, follow: true } }}>
+  <main class="not-found">
+    <BeaconBrand />
+    <p class="code">404</p>
+    <h1>This page is outside the signal.</h1>
+    <p>Return to the BEACON project homepage.</p>
+    <a href="/">Back to BEACON</a>
+  </main>
+</Layout>
+
+<style>
+  .not-found {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    text-align: center;
+    background: #fffdfa;
+    color: #15283d;
+  }
+  .code {
+    margin: 2rem 0 -0.5rem;
+    color: #d65d2c;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(2rem, 7vw, 4.4rem);
+    letter-spacing: -0.055em;
+  }
+  p {
+    margin: 0;
+    color: #60748b;
+  }
+  a {
+    margin-top: 1rem;
+    display: inline-flex;
+    padding: 0.8rem 1.1rem;
+    border-radius: 999px;
+    background: #15283d;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+  }
+</style>

@@ -1,0 +1,71 @@
+---
+export interface Props {
+  compact?: boolean;
+  light?: boolean;
+}
+const { compact = false, light = false } = Astro.props;
+---
+
+<div class:list={['beacon-brand', { compact, light }]} aria-label="BEACON">
+  <span class="beacon-word">BEAC<span class="beacon-o" aria-hidden="true"><span></span></span>N</span>
+  {!compact && <span class="beacon-sub">Bedside Emergency AI for Care Orchestration</span>}
+</div>
+
+<style>
+  .beacon-brand {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.24rem;
+  }
+  .beacon-word {
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    line-height: 0.9;
+    color: #f4511e;
+    font-size: clamp(2rem, 5vw, 3.55rem);
+  }
+  .beacon-o {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 0.79em;
+    height: 0.79em;
+    margin: 0 0.025em;
+    border-radius: 999px;
+    background: #f4511e;
+    vertical-align: 0.02em;
+    box-shadow:
+      0 0 0 0.08em rgba(244, 81, 30, 0.08),
+      0 0 1.1em 0.28em rgba(247, 174, 53, 0.28);
+  }
+  .beacon-o::before {
+    content: '';
+    position: absolute;
+    width: 56%;
+    height: 56%;
+    border-radius: inherit;
+    background: radial-gradient(circle at 44% 40%, #fff7c2 0 11%, #ffd65a 23%, #f5a623 56%, #f4511e 100%);
+    box-shadow: 0 0 0.45em rgba(255, 212, 89, 0.95);
+  }
+  .beacon-o span {
+    position: absolute;
+    width: 135%;
+    height: 135%;
+    border: 1px solid rgba(244, 81, 30, 0.2);
+    border-radius: 50%;
+  }
+  .beacon-sub {
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.17em;
+    color: #42526a;
+    font-weight: 700;
+  }
+  .compact .beacon-word {
+    font-size: 1.62rem;
+  }
+  .light .beacon-word,
+  .light .beacon-sub {
+    color: white;
+  }
+</style>
