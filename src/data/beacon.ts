@@ -48,7 +48,7 @@ export const people = [
     name: 'Brian Eastridge, MD',
     role: 'Co-PI · Trauma Surgeon',
     image: brianEastridge,
-    bio: 'Professor of surgery at UT Health San Antonio, division chief of trauma and emergency surgery, and the Jocelyn and Joe Straus Endowed Chair in Trauma Research. He brings deep expertise in trauma systems and emergency care.',
+    bio: 'Professor of Surgery at UT Health San Antonio, Division Chief of Trauma and Emergency Surgery and the Jocelyn and Joe Straus Endowed Chair in Trauma Research. He brings deep expertise in trauma systems and emergency care.',
     focus: 'Trauma systems · surgery · clinical operations',
   },
   {
@@ -56,7 +56,7 @@ export const people = [
     name: 'Mark Goldberg, MD',
     role: 'Co-PI · Neurologist',
     image: markGoldberg,
-    bio: 'Neurologist at UT Health San Antonio specializing in stroke and cerebrovascular disorders, with research focused on recovery after stroke and brain injury.',
+    bio: 'LeWinn Endowed Professor in Neurology at UT Health San Antonio specializing in stroke and cerebrovascular disorders, with research focused on recovery after stroke and brain injury.',
     focus: 'Stroke · brain injury · neurologic recovery',
   },
   {
@@ -64,7 +64,7 @@ export const people = [
     name: 'Elizabeth Scherer, MD, MPH',
     role: 'Co-PI · Trauma & Critical Care',
     image: elizabethScherer,
-    bio: 'Assistant professor of trauma and emergency surgery and Surgical Critical Care Fellowship Director. Scherer helps shape realistic clinical scenarios and evaluates whether AI outputs are consistent, meaningful, and actionable.',
+    bio: 'Assistant Professor of Trauma and Emergency Surgery and Surgical Critical Care Fellowship Director. Scherer helps shape realistic clinical scenarios and evaluates whether AI outputs are consistent, meaningful, and actionable.',
     focus: 'Critical care · triage · clinical validation',
   },
 ];
