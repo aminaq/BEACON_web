@@ -15,7 +15,7 @@ metadata:
     site_name: BEACON
     images:
       - url: '~/assets/images/beacon/beacon-social.png'
-        width: 600
+        width: 900
         height: 600
     type: website
   twitter:
