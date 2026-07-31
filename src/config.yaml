@@ -13,9 +13,13 @@ metadata:
     follow: true
   openGraph:
     site_name: BEACON
+    images:
+      - url: '~/assets/images/beacon/beacon-social.png'
+        width: 600
+        height: 600
     type: website
   twitter:
-    cardType: summary
+    cardType: summary_large_image
 
 i18n:
   language: en
