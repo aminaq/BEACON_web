@@ -64,7 +64,7 @@ export const people = [
     name: 'Elizabeth Scherer, MD, MPH',
     role: 'Co-PI · Trauma & Critical Care',
     image: elizabethScherer,
-    bio: 'Assistant Professor of Trauma and Emergency Surgery and Surgical Critical Care Fellowship Director. Scherer helps shape realistic clinical scenarios and evaluates whether AI outputs are consistent, meaningful, and actionable.',
+    bio: 'Assistant Professor of Trauma and Emergency Surgery and Surgical Critical Care Fellowship Director. With her deep expertise in trauma care, Scherer helps shape realistic clinical scenarios and evaluates whether AI outputs are consistent, meaningful, and actionable.',
     focus: 'Critical care · triage · clinical validation',
   },
 ];
@@ -90,7 +90,7 @@ export const involvement = [
       'Clinicians, engineers, startups, hospitals, rehabilitation teams, and data partners can help build and test the ecosystem.',
     dialogTitle: 'Collaborate with BEACON',
     dialogBody:
-      'BEACON is a project of the iRemedyACT Consoritium, building one of the most comprehensive AI and data ecosystems for trauma care and stroke in the world. Partners welcome across the spectrun of trauma and stroke care and recovery.',
+      'BEACON is a project of the iRemedyACT Consortia, building one of the most comprehensive AI and data ecosystems for trauma care and stroke in the world. Partners welcome across the spectrum of trauma and stroke care and recovery.',
     nextStep:
       'Potential collaborators can begin by identifying the clinical, technical, deployment, data, or survivor-centered expertise they can contribute. Partnership routes can be shared through participating institutions.',
   },
