@@ -22,14 +22,14 @@ export const goals = [
     number: '02',
     phase: 'Across the system',
     title: 'Build infrastructure that can scale',
-    description: 'Shared data, validated AI pipelines, and a roadmap for consistent deployment across Texas.',
+    description: 'Shared data, validated AI pipelines, and a roadmap for consistent deployment across the state and nation.',
     accent: 'blue',
   },
   {
     number: '03',
     phase: 'Through recovery',
     title: 'Stay with survivors after the emergency',
-    description: 'Patient-centered data and AI support for brain injury and stroke recovery over time.',
+    description: 'Patient-centered data and AI support for brain injury and stroke recovery over time. Patient-centered recovery outcomes create a learning loop that improves medical decisions.',
     accent: 'green',
   },
 ];
