@@ -1,5 +1,6 @@
 site:
   name: BEACON
+  site: 'https://beacon.iremedyact.org'
   base: '/'
   trailingSlash: false
 

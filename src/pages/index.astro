@@ -37,6 +37,75 @@ const collaboratorLogoItems = [
   { name: 'Selja AI', image: seljaAiLogo, className: 'is-mark' },
 ];
 
+const missionStages = [
+  {
+    number: '1',
+    title: 'Rapid-testing platform for Selja established',
+    status: 'complete',
+    statusLabel: 'Accomplished',
+    timingLabel: 'Month 6',
+    type: 'point',
+    start: 33.333,
+    end: 33.333,
+    detail: 'Accomplished — the rapid-testing platform for Selja has been established.',
+  },
+  {
+    number: '2',
+    title: "Selja deployed as an 'AI clinical assistant' across partner hospital sites in Texas",
+    status: 'next',
+    statusLabel: 'Next up',
+    timingLabel: 'Months 6–18',
+    type: 'bar',
+    start: 66.667,
+    end: 100,
+    detail: "Next up — deploy Selja as an 'AI clinical assistant' across Texas hospital sites.",
+  },
+  {
+    number: '3',
+    title: 'Launch clinical AI training workshops',
+    status: 'upcoming',
+    statusLabel: 'Upcoming',
+    timingLabel: 'Months 12–18',
+    type: 'bar',
+    start: 66.667,
+    end: 100,
+    detail: 'Launch clinical AI training workshops for participating teams.',
+  },
+  {
+    number: '4',
+    title: 'Establish a longitudinal recovery-data repository',
+    status: 'upcoming',
+    statusLabel: 'Upcoming',
+    timingLabel: 'Months 6–18',
+    type: 'bar',
+    start: 66.667,
+    end: 100,
+    detail: 'Establish a repository that supports post-hospitalization recovery work.',
+  },
+  {
+    number: '5',
+    title: 'Develop AI advocates for patients in recovery',
+    status: 'upcoming',
+    statusLabel: 'Upcoming',
+    timingLabel: 'Months 12-18',
+    type: 'point',
+    start: 100,
+    end: 100,
+    detail: 'Develop AI advocates for patients navigating recovery.',
+  },
+  {
+    number: '6',
+    title: 'Link recovery outcomes to prehospital and trauma-care data',
+    status: 'upcoming',
+    statusLabel: 'Upcoming',
+    timingLabel: 'Months 12-18',
+    type: 'point',
+    start: 100,
+    end: 100,
+    detail: 'Link patient outcomes to pre-hospital data and trauma care.',
+  },
+];
+
 const metadata = {
   title: 'BEACON — Bedside Emergency AI for Care Orchestration',
   description:
@@ -53,6 +122,7 @@ const metadata = {
         <a href="#mission">Mission</a>
         <a href="#impact">Impact</a>
         <a href="#team">People</a>
+        <a href="#stage">Stage</a>
         <a href="#involve" class="nav-cta">Get involved</a>
       </nav>
       <details class="mobile-nav">
@@ -61,6 +131,7 @@ const metadata = {
           <a href="#mission">Mission</a>
           <a href="#impact">Impact</a>
           <a href="#team">People</a>
+          <a href="#stage">Stage</a>
           <a href="#involve">Get involved</a>
         </nav>
       </details>
@@ -84,7 +155,11 @@ const metadata = {
         <p class="human-note"><span class="human-dot"></span> Human expertise stays in the loop.</p>
       </div>
 
-      <div class="hero-visual hero-gif" role="img" aria-label="Animated BEACON journey from Emergency and Selja decision support to an illuminated path and Recovery support.">
+      <div
+        class="hero-visual hero-gif"
+        role="img"
+        aria-label="Animated BEACON journey from Emergency and Selja decision support to an illuminated path and Recovery support."
+      >
         <img
           src="/images/beacon/beacon-hero-journey-900x600.gif"
           alt="Emergency and Selja decision support illuminate red, followed by the BEACON moon, the path to recovery, and the Recovery continuous support sign."
@@ -139,6 +214,67 @@ const metadata = {
             </article>
           ))
         }
+
+        <div class="journey-feedback" aria-label="Recovery insights improve care for both the current patient - and the next.">
+          <svg class="journey-feedback-desktop" viewBox="0 0 1200 120" role="img" aria-hidden="true">
+            <defs>
+              <marker
+                id="journey-feedback-arrow"
+                markerWidth="10"
+                markerHeight="10"
+                refX="8"
+                refY="5"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <path d="M 9 5 L 1 1 M 9 5 L 1 9" fill="none" stroke="currentColor" stroke-width="1.6" />
+              </marker>
+            </defs>
+            <path
+              class="journey-feedback-path"
+              d="M 1085 8 C 1085 76 950 94 600 94 C 250 94 115 76 115 8"
+              marker-end="url(#journey-feedback-arrow)"
+            />
+            <path
+              class="journey-feedback-pulse"
+              d="M 1085 8 C 1085 76 950 94 600 94 C 250 94 115 76 115 8"
+            />
+            <circle class="journey-feedback-dot" r="4">
+              <animateMotion
+                dur="4.8s"
+                repeatCount="indefinite"
+                path="M 1085 8 C 1085 76 950 94 600 94 C 250 94 115 76 115 8"
+              />
+            </circle>
+          </svg>
+
+          <svg class="journey-feedback-mobile" viewBox="0 0 54 600" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker
+                id="journey-feedback-arrow-mobile"
+                markerWidth="10"
+                markerHeight="10"
+                refX="8"
+                refY="5"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <path d="M 9 5 L 1 1 M 9 5 L 1 9" fill="none" stroke="currentColor" stroke-width="1.6" />
+              </marker>
+            </defs>
+            <path
+              class="journey-feedback-path"
+              d="M 12 568 C 46 530 46 90 12 30"
+              marker-end="url(#journey-feedback-arrow-mobile)"
+            />
+            <path class="journey-feedback-pulse" d="M 12 568 C 46 530 46 90 12 30" />
+            <circle class="journey-feedback-dot" r="3.5">
+              <animateMotion dur="4.8s" repeatCount="indefinite" path="M 12 568 C 46 530 46 90 12 30" />
+            </circle>
+          </svg>
+
+          <p>Recovery insights improve care for both the current patient - and the next.</p>
+        </div>
       </div>
 
       <div class="principle-strip">
@@ -180,8 +316,8 @@ const metadata = {
         <div class="team-note">
           <span class="team-note-count">30+</span>
           <p>
-            <strong>One multidisciplinary team.</strong> Clinicians, AI researchers, engineers, psychologists, therapists, nurses, startup partners, 
-            and collaborators across the UT system and partner institutions.
+            <strong>One multidisciplinary team.</strong> Clinicians, AI researchers, engineers, psychologists, therapists,
+            nurses, startup partners, and collaborators across the UT system and partner institutions.
           </p>
         </div>
 
@@ -190,8 +326,8 @@ const metadata = {
             <p class="eyebrow"><span></span> The wider collaborator community</p>
             <h3>Across institutions, startups, and clinical environments.</h3>
             <p>
-              BEACON is powered by a broader network of collaborators contributing clinical expertise, implementation insight,
-              AI development, rehabilitation knowledge, and survivor-centered perspectives.
+              BEACON is powered by a broader network of collaborators contributing clinical expertise, implementation
+              insight, AI development, rehabilitation knowledge, and survivor-centered perspectives.
             </p>
           </div>
 
@@ -226,6 +362,64 @@ const metadata = {
               ))
             }
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stage-section" id="stage" aria-labelledby="stage-title">
+      <div class="section-shell">
+        <div class="section-intro stage-intro">
+          <div>
+            <p class="eyebrow"><span></span> Mission Stage</p>
+            <h2 id="stage-title">One mission. Six clear stages.</h2>
+          </div>
+          <p>
+            <strong>Stage 1 is complete.</strong> The next focus is deploying Selja across partner hospital sites.
+          </p>
+        </div>
+
+        <div class="simple-stage-tracker" data-mission-stage>
+          <div class="simple-stage-overview">
+            <div>
+              <span class="simple-stage-kicker">Project progress</span>
+              <strong>1 of 6 stages complete</strong>
+            </div>
+            <div
+              class="simple-stage-progress"
+              role="progressbar"
+              aria-label="One of six mission stages complete"
+              aria-valuemin="0"
+              aria-valuemax="6"
+              aria-valuenow="1"
+            >
+              <span></span>
+            </div>
+          </div>
+
+          <ol class="simple-stage-list">
+            {
+              missionStages.map((stage) => (
+                <li
+                  class={`simple-stage-item simple-stage-item-${stage.status}`}
+                  style={`--stage-delay: ${Number(stage.number) * 70}ms;`}
+                >
+                  <span class="simple-stage-marker" aria-hidden="true">
+                    {stage.status === 'complete' ? '✓' : stage.number}
+                  </span>
+                  <div class="simple-stage-copy">
+                    <div class="simple-stage-line">
+                      <strong>Mission Stage {stage.number}</strong>
+                      <span>{stage.timingLabel}</span>
+                    </div>
+                    <p>{stage.title}</p>
+                  </div>
+                  <span class={`simple-stage-status simple-stage-status-${stage.status}`}>
+                    {stage.statusLabel}
+                  </span>
+                </li>
+              ))
+            }
+          </ol>
         </div>
       </div>
     </section>
@@ -382,9 +576,32 @@ const metadata = {
       startAuto();
     };
 
+    const setupMissionStage = () => {
+      const tracker = document.querySelector('[data-mission-stage]');
+      if (!tracker || tracker.dataset.bound) return;
+      tracker.dataset.bound = 'true';
+
+      const reveal = () => tracker.classList.add('is-visible');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (entries.some((entry) => entry.isIntersecting)) {
+              reveal();
+              observer.disconnect();
+            }
+          },
+          { threshold: 0.18 }
+        );
+        observer.observe(tracker);
+      } else {
+        reveal();
+      }
+    };
+
     const initBeaconPage = () => {
       setupBeaconDialogs();
       setupHeroJourney();
+      setupMissionStage();
     };
 
     initBeaconPage();
@@ -648,8 +865,7 @@ const metadata = {
     --moon-top: 78%;
     border-radius: 2.1rem;
     border: 1px solid rgba(21, 40, 61, 0.06);
-    background:
-      linear-gradient(180deg, #fffdf9 0%, #f5f7fb 50%, #eef2f7 100%);
+    background: linear-gradient(180deg, #fffdf9 0%, #f5f7fb 50%, #eef2f7 100%);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.72),
       0 28px 90px rgba(50, 67, 88, 0.08);
@@ -671,13 +887,23 @@ const metadata = {
     background:
       radial-gradient(circle at 64% 18%, rgba(255, 248, 218, 0.82), rgba(255, 248, 218, 0) 25%),
       radial-gradient(circle at 22% 16%, rgba(232, 239, 248, 0.95), rgba(232, 239, 248, 0) 26%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 253, 0.92) 42%, rgba(239, 243, 249, 0.95) 100%);
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(248, 250, 253, 0.92) 42%,
+        rgba(239, 243, 249, 0.95) 100%
+      );
   }
   .hero-sun-haze {
     inset: 18% 18% 22% 18%;
     border-radius: 50%;
     background:
-      radial-gradient(circle at 50% 48%, rgba(245, 166, 35, 0.22), rgba(245, 166, 35, 0.08) 24%, rgba(245, 166, 35, 0) 56%),
+      radial-gradient(
+        circle at 50% 48%,
+        rgba(245, 166, 35, 0.22),
+        rgba(245, 166, 35, 0.08) 24%,
+        rgba(245, 166, 35, 0) 56%
+      ),
       radial-gradient(circle at 50% 50%, rgba(21, 40, 61, 0.08), rgba(21, 40, 61, 0) 68%);
     filter: blur(16px);
     z-index: 0;
@@ -743,7 +969,12 @@ const metadata = {
     width: 36%;
     height: 36%;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 248, 218, 0.94) 0%, rgba(245, 166, 35, 0.2) 44%, rgba(245, 166, 35, 0) 74%);
+    background: radial-gradient(
+      circle,
+      rgba(255, 248, 218, 0.94) 0%,
+      rgba(245, 166, 35, 0.2) 44%,
+      rgba(245, 166, 35, 0) 74%
+    );
     filter: blur(10px);
     z-index: 2;
     pointer-events: none;
@@ -775,7 +1006,12 @@ const metadata = {
     width: 40%;
     height: 40%;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 252, 235, 0.98), rgba(255, 222, 111, 0.92) 68%, rgba(244, 81, 30, 0.12));
+    background: radial-gradient(
+      circle,
+      rgba(255, 252, 235, 0.98),
+      rgba(255, 222, 111, 0.92) 68%,
+      rgba(244, 81, 30, 0.12)
+    );
     filter: blur(0.6px);
   }
   .beacon-moon span {
@@ -787,8 +1023,15 @@ const metadata = {
     animation: beacon-pulse 3.8s ease-in-out infinite;
   }
   @keyframes beacon-pulse {
-    0%, 100% { transform: scale(0.96); opacity: 0.42; }
-    50% { transform: scale(1.04); opacity: 0.82; }
+    0%,
+    100% {
+      transform: scale(0.96);
+      opacity: 0.42;
+    }
+    50% {
+      transform: scale(1.04);
+      opacity: 0.82;
+    }
   }
   .path-node {
     width: 2rem;
@@ -808,7 +1051,9 @@ const metadata = {
     background: rgba(255, 255, 255, 0.72);
     border: 1px solid rgba(21, 40, 61, 0.08);
     box-shadow: 0 10px 24px rgba(21, 40, 61, 0.09);
-    transition: transform 0.25s ease, background 0.25s ease;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease;
   }
   .path-node-core {
     position: absolute;
@@ -828,9 +1073,21 @@ const metadata = {
     outline: 2px solid rgba(21, 40, 61, 0.35);
     outline-offset: 4px;
   }
-  .node-emergency { left: 15.2%; top: 75.8%; color: var(--beacon-orange); }
-  .node-orchestration { left: 45.8%; top: 52.4%; color: var(--beacon-gold); }
-  .node-recovery { left: 82%; top: 17.6%; color: var(--beacon-blue); }
+  .node-emergency {
+    left: 15.2%;
+    top: 75.8%;
+    color: var(--beacon-orange);
+  }
+  .node-orchestration {
+    left: 45.8%;
+    top: 52.4%;
+    color: var(--beacon-gold);
+  }
+  .node-recovery {
+    left: 82%;
+    top: 17.6%;
+    color: var(--beacon-blue);
+  }
   .destination-chip {
     display: inline-flex;
     align-items: center;
@@ -844,7 +1101,11 @@ const metadata = {
     color: var(--beacon-ink);
     cursor: pointer;
     z-index: 5;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease,
+      background 0.3s ease;
   }
   .destination-step {
     width: 2.35rem;
@@ -870,9 +1131,18 @@ const metadata = {
     color: #74889b;
     font-size: 0.68rem;
   }
-  .chip-emergency { left: 6%; bottom: 10%; }
-  .chip-orchestration { left: 39%; top: 39%; }
-  .chip-recovery { right: 2.8%; top: 7.2%; }
+  .chip-emergency {
+    left: 6%;
+    bottom: 10%;
+  }
+  .chip-orchestration {
+    left: 39%;
+    top: 39%;
+  }
+  .chip-recovery {
+    right: 2.8%;
+    top: 7.2%;
+  }
   .hero-stage-panel {
     left: 6%;
     right: 6%;
@@ -927,7 +1197,6 @@ const metadata = {
     background: rgba(255, 255, 255, 0.94);
     transform: scale(1.08);
   }
-
 
   .stats-band {
     border-block: 1px solid rgba(21, 40, 61, 0.08);
@@ -1031,6 +1300,59 @@ const metadata = {
       transform: translateX(20%);
     }
   }
+
+  .journey-feedback {
+    grid-column: 1 / -1;
+    position: relative;
+    color: #6f89a5;
+    margin-top: -0.15rem;
+  }
+  .journey-feedback svg {
+    display: block;
+    width: 100%;
+    overflow: visible;
+  }
+  .journey-feedback-desktop {
+    height: clamp(5.5rem, 9vw, 7.5rem);
+  }
+  .journey-feedback-mobile {
+    display: none !important;
+  }
+  .journey-feedback-path,
+  .journey-feedback-pulse {
+    fill: none;
+    vector-effect: non-scaling-stroke;
+  }
+  .journey-feedback-path {
+    stroke: rgba(91, 119, 150, 0.58);
+    stroke-width: 1.45;
+  }
+  .journey-feedback-pulse {
+    stroke: rgba(69, 111, 166, 0.95);
+    stroke-width: 2.15;
+    stroke-linecap: round;
+    stroke-dasharray: 10 110;
+    animation: journey-feedback-flow 4.8s linear infinite;
+  }
+  .journey-feedback-dot {
+    fill: #456fa6;
+    filter: drop-shadow(0 0 4px rgba(69, 111, 166, 0.34));
+  }
+  .journey-feedback p {
+    margin: -0.65rem 0 0;
+    text-align: center;
+    color: #607b9b;
+    font-size: clamp(0.76rem, 1.2vw, 0.9rem);
+    letter-spacing: 0.01em;
+  }
+  @keyframes journey-feedback-flow {
+    from {
+      stroke-dashoffset: 120;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
   .goal-card {
     position: relative;
     padding: 1.35rem 1.2rem 1.5rem;
@@ -1105,6 +1427,15 @@ const metadata = {
   .goal-card p {
     color: #60748b;
   }
+  @media (prefers-reduced-motion: reduce) {
+    .journey-feedback-pulse {
+      animation: none;
+      opacity: 0;
+    }
+    .journey-feedback-dot {
+      display: none;
+    }
+  }
   .principle-strip {
     margin-top: 1rem;
     border-radius: 1.45rem;
@@ -1148,7 +1479,6 @@ const metadata = {
     line-height: 1.55;
     letter-spacing: -0.015em;
   }
-
 
   .team-section {
     padding-block: clamp(5rem, 9vw, 8rem);
@@ -1272,6 +1602,180 @@ const metadata = {
   }
   .logo-item.is-mark img {
     max-height: 5.5rem;
+  }
+
+  .stage-section {
+    padding-block: clamp(5rem, 9vw, 8rem);
+    background: #fffdfa;
+    border-top: 1px solid rgba(21, 40, 61, 0.07);
+    font-family: Aptos, 'Aptos Display', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+  }
+  .stage-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.55fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: end;
+  }
+  .stage-intro h2 {
+    font-size: clamp(2.35rem, 4.8vw, 4.35rem);
+  }
+  .stage-intro > p {
+    margin: 0 0 0.35rem;
+    color: #60748b;
+    line-height: 1.65;
+  }
+  .stage-intro > p strong {
+    color: var(--beacon-ink);
+  }
+  .simple-stage-tracker {
+    margin-top: 3rem;
+    border: 1px solid rgba(21, 40, 61, 0.09);
+    border-radius: 1.6rem;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 22px 60px rgba(35, 54, 76, 0.07);
+    overflow: hidden;
+  }
+  .simple-stage-overview {
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.32fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: center;
+    padding: 1.35rem 1.5rem;
+    background: linear-gradient(100deg, rgba(244, 81, 30, 0.08), rgba(245, 166, 35, 0.025));
+    border-bottom: 1px solid rgba(21, 40, 61, 0.08);
+  }
+  .simple-stage-kicker {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--beacon-orange);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.68rem;
+    font-weight: 800;
+  }
+  .simple-stage-overview strong {
+    color: var(--beacon-ink);
+    font-size: 1.05rem;
+  }
+  .simple-stage-progress {
+    height: 0.62rem;
+    border-radius: 999px;
+    background: rgba(21, 40, 61, 0.1);
+    overflow: hidden;
+  }
+  .simple-stage-progress span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--beacon-orange), var(--beacon-gold));
+    box-shadow: 0 0 18px rgba(244, 81, 30, 0.24);
+    transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+  }
+  .simple-stage-tracker.is-visible .simple-stage-progress span {
+    width: 16.667%;
+  }
+  .simple-stage-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .simple-stage-item {
+    display: grid;
+    grid-template-columns: 2.7rem minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: center;
+    min-height: 6.25rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(21, 40, 61, 0.075);
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity 0.5s ease var(--stage-delay),
+      transform 0.5s ease var(--stage-delay),
+      background 0.2s ease;
+  }
+  .simple-stage-item:last-child {
+    border-bottom: 0;
+  }
+  .simple-stage-tracker.is-visible .simple-stage-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .simple-stage-item-complete {
+    background: linear-gradient(90deg, rgba(244, 81, 30, 0.07), rgba(255, 255, 255, 0));
+  }
+  .simple-stage-item-next {
+    background: rgba(245, 166, 35, 0.025);
+  }
+  .simple-stage-marker {
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(21, 40, 61, 0.16);
+    background: white;
+    color: var(--beacon-ink);
+    font-weight: 800;
+  }
+  .simple-stage-item-complete .simple-stage-marker {
+    border-color: var(--beacon-orange);
+    background: var(--beacon-orange);
+    color: white;
+    box-shadow: 0 0 0 0.42rem rgba(244, 81, 30, 0.09);
+  }
+  .simple-stage-tracker.is-visible .simple-stage-item-complete .simple-stage-marker {
+    animation: simple-stage-pulse 1.35s ease-out 0.55s 2;
+  }
+  .simple-stage-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.4rem 1rem;
+    color: var(--beacon-ink);
+  }
+  .simple-stage-line strong {
+    font-size: 0.95rem;
+  }
+  .simple-stage-line span {
+    color: #71869a;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .simple-stage-copy p {
+    margin: 0.28rem 0 0;
+    color: #50677c;
+    line-height: 1.5;
+    font-size: 0.92rem;
+  }
+  .simple-stage-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.8rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    font-size: 0.69rem;
+    font-weight: 800;
+  }
+  .simple-stage-status-complete {
+    background: rgba(244, 81, 30, 0.12);
+    color: #d94719;
+  }
+  .simple-stage-status-next {
+    border: 1px solid rgba(244, 81, 30, 0.3);
+    color: var(--beacon-orange);
+  }
+  .simple-stage-status-upcoming {
+    background: rgba(21, 40, 61, 0.055);
+    color: #6e8193;
+  }
+  @keyframes simple-stage-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(244, 81, 30, 0.28); }
+    70% { box-shadow: 0 0 0 0.85rem rgba(244, 81, 30, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(244, 81, 30, 0); }
   }
 
   .involve-section {
@@ -1418,6 +1922,16 @@ const metadata = {
     }
   }
 
+  @media (max-width: 980px) {
+    .stage-intro {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .stage-intro > p {
+      max-width: 680px;
+    }
+  }
+
   @media (max-width: 760px) {
     .desktop-nav {
       display: none;
@@ -1463,6 +1977,7 @@ const metadata = {
     .journey {
       grid-template-columns: 1fr;
       gap: 0.8rem;
+      margin-bottom: 3rem;
     }
     .journey-line {
       left: 2.15rem;
@@ -1475,6 +1990,30 @@ const metadata = {
     }
     .journey-line span {
       display: none;
+    }
+    .journey-feedback {
+      position: absolute;
+      inset: 0 -0.15rem 0 auto;
+      width: 3.2rem;
+      margin: 0;
+      pointer-events: none;
+    }
+    .journey-feedback-desktop {
+      display: none !important;
+    }
+    .journey-feedback-mobile {
+      display: block !important;
+      width: 100%;
+      height: 100%;
+    }
+    .journey-feedback p {
+      position: absolute;
+      right: 3.35rem;
+      bottom: -2.4rem;
+      width: calc(100vw - 6rem);
+      margin: 0;
+      text-align: right;
+      font-size: 0.74rem;
     }
     .goal-card {
       min-height: 15rem;
@@ -1494,6 +2033,24 @@ const metadata = {
     }
     .hero-stage-panel {
       padding: 0.85rem 0.9rem;
+    }
+    .simple-stage-overview {
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      padding: 1.15rem;
+    }
+    .simple-stage-item {
+      grid-template-columns: 2.45rem minmax(0, 1fr);
+      gap: 0.8rem;
+      padding: 1rem 1.1rem;
+    }
+    .simple-stage-marker {
+      width: 2.45rem;
+      height: 2.45rem;
+    }
+    .simple-stage-status {
+      grid-column: 2;
+      justify-self: start;
     }
     .involve-grid {
       grid-template-columns: 1fr;
@@ -1552,7 +2109,6 @@ const metadata = {
     }
   }
 
-
   /* Hero GIF: 900 x 600 portrait-style composition (900 height x 600 width) with the full sequence preserved and blended into the page background. */
   .hero-gif.hero-visual {
     aspect-ratio: 2 / 3;
@@ -1585,5 +2141,4 @@ const metadata = {
       width: min(94vw, 420px);
     }
   }
-
 </style>
