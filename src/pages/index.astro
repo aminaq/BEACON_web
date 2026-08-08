@@ -40,7 +40,7 @@ const collaboratorLogoItems = [
 const missionStages = [
   {
     number: '1',
-    title: 'Rapid-testing platform for Selja established',
+    title: 'Rapid-testing platform for testing of Selja established',
     status: 'complete',
     statusLabel: 'Accomplished',
     timingLabel: 'Month 6',
@@ -54,7 +54,7 @@ const missionStages = [
     title: "Selja deployed as an 'AI clinical assistant' across partner hospital sites in Texas",
     status: 'next',
     statusLabel: 'Next up',
-    timingLabel: 'Months 6–18',
+    timingLabel: 'Months 12–18',
     type: 'bar',
     start: 66.667,
     end: 100,
@@ -62,21 +62,21 @@ const missionStages = [
   },
   {
     number: '3',
-    title: 'Launch clinical AI training workshops',
+    title: 'Clinical AI training workshops established',
     status: 'upcoming',
     statusLabel: 'Upcoming',
     timingLabel: 'Months 12–18',
     type: 'bar',
     start: 66.667,
     end: 100,
-    detail: 'Launch clinical AI training workshops for participating teams.',
+    detail: 'Establish clinical AI training workshops for participating teams.',
   },
   {
     number: '4',
-    title: 'Establish a longitudinal recovery-data repository',
+    title: 'Post-hospitalization recovery repository established',
     status: 'upcoming',
     statusLabel: 'Upcoming',
-    timingLabel: 'Months 6–18',
+    timingLabel: 'Months 12–18',
     type: 'bar',
     start: 66.667,
     end: 100,
@@ -84,10 +84,10 @@ const missionStages = [
   },
   {
     number: '5',
-    title: 'Develop AI advocates for patients in recovery',
+    title: 'AI advocates developed for patients in recovery',
     status: 'upcoming',
     statusLabel: 'Upcoming',
-    timingLabel: 'Months 12-18',
+    timingLabel: 'Month 18',
     type: 'point',
     start: 100,
     end: 100,
@@ -95,10 +95,10 @@ const missionStages = [
   },
   {
     number: '6',
-    title: 'Link recovery outcomes to prehospital and trauma-care data',
+    title: 'Patient outcomes linked to pre-hospital data and trauma care',
     status: 'upcoming',
     statusLabel: 'Upcoming',
-    timingLabel: 'Months 12-18',
+    timingLabel: 'Month 18',
     type: 'point',
     start: 100,
     end: 100,
@@ -215,7 +215,7 @@ const metadata = {
           ))
         }
 
-        <div class="journey-feedback" aria-label="Recovery insights improve care for both the current patient - and the next.">
+        <div class="journey-feedback" aria-label="Recovery insights improve care for both the current - and the next - patient.">
           <svg class="journey-feedback-desktop" viewBox="0 0 1200 120" role="img" aria-hidden="true">
             <defs>
               <marker
@@ -273,7 +273,7 @@ const metadata = {
             </circle>
           </svg>
 
-          <p>Recovery insights improve care for both the current patient - and the next.</p>
+          <p>Recovery insights improve care for both the current - and the next - patient.</p>
         </div>
       </div>
 
@@ -748,8 +748,8 @@ const metadata = {
     display: grid;
     grid-template-columns: minmax(0, 0.94fr) minmax(460px, 1.12fr);
     gap: clamp(2rem, 5vw, 5rem);
-    align-items: center;
-    padding-block: clamp(4rem, 8vw, 7.5rem);
+    align-items: start;
+    padding-block: clamp(3rem, 6vh, 6rem);
     overflow: hidden;
   }
   .hero-copy {
@@ -2109,12 +2109,14 @@ const metadata = {
     }
   }
 
-  /* Hero GIF: 900 x 600 portrait-style composition (900 height x 600 width) with the full sequence preserved and blended into the page background. */
+  /* Hero GIF: keep the full 600 × 900 composition large, top-aligned, and responsive to available column width. */
   .hero-gif.hero-visual {
     aspect-ratio: 2 / 3;
-    width: min(100%, 520px);
+    width: clamp(500px, 37vw, 620px);
+    max-width: 100%;
     justify-self: center;
-    align-self: center;
+    align-self: start;
+    margin-top: clamp(2.25rem, 5.5vh, 4.75rem);
     overflow: visible;
     background: transparent;
   }
@@ -2123,17 +2125,33 @@ const metadata = {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    object-position: center;
+    object-position: center top;
+  }
+  @media (min-width: 981px) and (max-height: 900px) {
+    .hero {
+      padding-top: clamp(2rem, 4vh, 3rem);
+      padding-bottom: clamp(2.5rem, 5vh, 4rem);
+    }
+    .hero-gif.hero-visual {
+      width: clamp(500px, 37vw, 620px);
+      max-width: 100%;
+      margin-top: clamp(1.5rem, 4vh, 3rem);
+    }
   }
   @media (max-width: 1200px) {
     .hero-gif.hero-visual {
-      width: min(100%, 500px);
+      width: min(100%, 560px);
     }
   }
   @media (max-width: 980px) {
+    .hero {
+      align-items: center;
+    }
     .hero-gif.hero-visual {
       width: min(92vw, 520px);
       justify-self: center;
+      align-self: center;
+      margin-top: 0;
     }
   }
   @media (max-width: 560px) {
